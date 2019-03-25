@@ -55,7 +55,7 @@ const InboxStackScreen = createStackNavigator({
 	Inbox: {
 		screen: InboxScreen,
 		navigationOptions: {
-			tabBarLabel: 'SAVED',
+			tabBarLabel: 'INBOX',
 			header: null,
 		}
 	},
