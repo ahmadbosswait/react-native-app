@@ -74,7 +74,7 @@ export class InboxScreen extends React.Component {
                      <TouchableOpacity
                         onPress={() => this.handleListTap(item)}
                      >
-                        <Category name={item.firstname} imageUri={item.img_src} />
+                        <Category name={item.firstname} imageUri={this.state.baseUploadUrl+ item.img_src_thumb} />
                      </TouchableOpacity>
                   }
                   refreshing={this.state.refreshing}
