@@ -25,24 +25,31 @@ export class InboxScreen extends React.Component {
       fetch('http://5x5.ir/api/user/showAll')
          .then(response => response.json())
          .then(data => {
-            this.setState({
-               loading: false,
-               posts: data.users
-            });
+            setTimeout(() => {
+               this.setState({
+                  loading: false,
+                  refreshing: false,
+                  posts: data.users
+            })}, 3000)
          });
    }
    handleRefresh = () => {
-      fetch('http://5x5.ir/api/user/showAll')
-         .then(response => response.json())
-         .then(data => {
-            this.setState({
-               loading: false,
-               refreshing: false,
-               posts: data.users
-            });
-         });
+      this.setState({
+         refreshing: true,
+       });
+         fetch('http://5x5.ir/api/user/showAll')
+            .then(response => response.json())
+            .then(data => {
+               setTimeout(() => {
+                  this.setState({
+                     loading: false,
+                     refreshing: false,
+                     posts: data.users
+                  }
+                  )}, 1000)
+             });
    }
-   handleListTap = item => {
+         handleListTap = item => {
       this.props.navigation.navigate('Single', {
          name: item.firstname,
          imageSrc: this.state.baseUploadUrl + item.img_src

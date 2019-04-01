@@ -16,6 +16,7 @@ export class TripsScreen extends React.Component {
 		axios({
 			method: 'post',
 			url: 'http://5x5.ir/api/RestUser/users',
+			headers: {"Authorization" : `Basic YWRtaW46MTIzNA==`},
 			data: {
 				firstname: this.state.name,
 				img_src: '1895804_09bf_21.jpg',
