@@ -24,6 +24,7 @@ export class TripsScreen extends React.Component {
 			}
 		  })
 		  .then(function (response) {
+				alert('its done ...');
 			console.log(response.data.data.firstname);
 		  })
 		  .catch(function (error) {
@@ -38,8 +39,8 @@ export class TripsScreen extends React.Component {
 		return (
 			<View style={styles.container}>
 
-            <TextInput style={styles.textInput}
-			   placeholder="Name" autoCapitalize="none" 
+            <TextInput multiline = {true} numberOfLines = {4} style={styles.textInput}
+			   placeholder="Write something" autoCapitalize="none" 
 			   ref={input => { this.textInput = input }}
 			   onSubmitEditing={ () => this.sendData() }
                onChangeText={(text) => { this.setState({ name: text }) }}
@@ -55,5 +56,5 @@ export default TripsScreen
 
 const styles = StyleSheet.create({
 	text: { color: "white", fontWeight: "bold", textAlign: "center", fontSize: 20, },
-	textInput: { borderWidth:1, borderColor:"gray", marginVertical: 20, padding:10, height:40, alignSelf: "stretch", fontSize: 18, },
+	textInput: { borderWidth:1, borderColor:"gray", marginVertical: 20, padding:10, height:100, alignSelf: "stretch", fontSize: 18, },
   });
