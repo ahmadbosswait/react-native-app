@@ -30,7 +30,7 @@ export class InboxScreen extends React.Component {
                   loading: false,
                   refreshing: false,
                   posts: data.users
-            })}, 3000)
+            })}, 1000)
          });
    }
    handleRefresh = () => {

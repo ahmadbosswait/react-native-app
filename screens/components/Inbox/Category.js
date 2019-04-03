@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Font } from 'expo';
 import {
    View,
    Text,
@@ -8,6 +9,16 @@ import {
 } from "react-native";
 
 class Category extends Component {
+   state = {
+      fontLoaded: false,
+   };
+   async componentDidMount(){
+      await Font.loadAsync({
+         'ae_Cortoba': require('./../../../assets/fonts/ae_Cortoba.ttf'),
+      });
+
+      this.setState({ fontLoaded: true });
+   }
    render() {
       return (
          <View
@@ -17,7 +28,11 @@ class Category extends Component {
                style={{ width: 50, height: 50, borderRadius: 25 }}
                source={{ uri: this.props.imageUri }}
             />
-            <Text style={{ padding: 10 }}>{this.props.name}</Text>
+            {
+               this.state.fontLoaded ? (
+                  <Text style={{ padding: 10, fontFamily:'ae_Cortoba' }}>{this.props.name}</Text>
+               ) : null
+            }
          </View>
       );
    }
