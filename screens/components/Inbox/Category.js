@@ -22,7 +22,7 @@ class Category extends Component {
    render() {
       return (
          <View
-            style={{ flexDirection: 'row', alignItems: 'center', padding: 10 }}
+            style={styles.view}
          >
             <Image
                style={{ width: 50, height: 50, borderRadius: 25 }}
@@ -44,5 +44,10 @@ const styles = StyleSheet.create({
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center'
+   },
+   view: {
+      flexDirection: 'row', 
+      alignItems: 'center', 
+      padding: 10 
    }
 });
