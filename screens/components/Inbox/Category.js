@@ -14,7 +14,7 @@ class Category extends Component {
    };
    async componentDidMount(){
       await Font.loadAsync({
-         'ae_Cortoba': require('./../../../assets/fonts/ae_Cortoba.ttf'),
+         'ae_Cortoba': require('./../../../assets/fonts/cortoba.ttf'),
       });
 
       this.setState({ fontLoaded: true });
