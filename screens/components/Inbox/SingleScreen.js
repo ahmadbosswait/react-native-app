@@ -12,7 +12,7 @@ import {
 
 export default class Single extends React.Component {
 	state = {
-		message: 'I am State',
+		message: 'this is a dummy message',
 	}
 
 	render() {
