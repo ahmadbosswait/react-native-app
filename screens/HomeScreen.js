@@ -16,8 +16,21 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Category from './components/Home/Category'
 import Homes from './components/Home/Homes'
 import Tag from './components/Home/Tag'
+// modules
+import {
+   handleAndroidBackButton,
+   removeAndroidBackButtonHandler,
+   exitAlert
+ } from '../modules/androidBackButton';
 const { height, width } = Dimensions.get('window')
 class HomeScreen extends Component {
+
+   componentDidMount() {
+      handleAndroidBackButton(exitAlert);
+   }
+   componentWillUnmount() {
+      removeAndroidBackButtonHandler();
+   }
 
    componentWillMount() {
 
