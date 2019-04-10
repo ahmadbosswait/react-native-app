@@ -26,8 +26,8 @@ const exitAlert = () => {
     'Confirm exit',
     'Do you want to quit the app ?',
     [
-      {text: 'CANCEL', style: 'cancel'},
-      {text: 'OK', onPress: () => BackHandler.exitApp()}
+      {text: 'No', style: 'cancel'},
+      {text: 'Yes', onPress: () => BackHandler.exitApp()}
     ]
   );
 };

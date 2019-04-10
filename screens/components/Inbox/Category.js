@@ -33,6 +33,7 @@ class Category extends Component {
                   <Text style={{ padding: 10, fontFamily:'ae_Cortoba' }}>{this.props.name}</Text>
                ) : null
             }
+            <Text style={{ padding: 2, fontSize: 10, flexDirection: 'column'  }}>{this.props.date}</Text>
          </View>
       );
    }

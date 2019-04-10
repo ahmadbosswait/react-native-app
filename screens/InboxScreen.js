@@ -52,7 +52,8 @@ export class InboxScreen extends React.Component {
          handleListTap = item => {
       this.props.navigation.navigate('Single', {
          name: item.firstname,
-         imageSrc: this.state.baseUploadUrl + item.img_src
+         imageSrc: this.state.baseUploadUrl + item.img_src,
+         date : item.modified
       });
    }
    render() {
@@ -81,7 +82,7 @@ export class InboxScreen extends React.Component {
                      <TouchableOpacity
                         onPress={() => this.handleListTap(item)}
                      >
-                        <Category name={item.firstname} imageUri={this.state.baseUploadUrl+ item.img_src_thumb} />
+                        <Category name={item.firstname} imageUri={this.state.baseUploadUrl+ item.img_src_thumb} date={item.Modified} />
                      </TouchableOpacity>
                   }
                   refreshing={this.state.refreshing}
