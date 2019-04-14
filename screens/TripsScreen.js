@@ -7,7 +7,8 @@ export class TripsScreen extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-		   name: "",
+			 post: "",
+			 title:""
 		};
 	 }
   
@@ -18,7 +19,8 @@ export class TripsScreen extends React.Component {
 			url: 'http://5x5.ir/api/RestUser/users',
 			headers: {"Authorization" : `Basic YWRtaW46MTIzNA==`},
 			data: {
-				firstname: this.state.name,
+				firstname: this.state.post,
+				lastname: this.state.title,
 				img_src: '1895804_09bf_21.jpg',
 				img_src_thumb: '1895804_09bf_21_thumb.jpg'
 			}
@@ -31,6 +33,7 @@ export class TripsScreen extends React.Component {
 			console.log(error);
 		  });
 			this.textInput.clear();
+			this.textInputTitle.clear();
 
 	 }
 
@@ -38,12 +41,17 @@ export class TripsScreen extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
-
+					<TextInput style={styles.textInputTitle}
+						placeholder="Write title" autoCapitalize="none" 
+						ref={input => { this.textInputTitle = input }}
+						onSubmitEditing={ () => this.sendData() }
+									onChangeText={(text) => { this.setState({ title: text }) }}
+					/>
             <TextInput multiline = {true} numberOfLines = {4} style={styles.textInput}
-			   placeholder="Write something" autoCapitalize="none" 
+			   placeholder="Write post" autoCapitalize="none" 
 			   ref={input => { this.textInput = input }}
 			   onSubmitEditing={ () => this.sendData() }
-               onChangeText={(text) => { this.setState({ name: text }) }}
+               onChangeText={(text) => { this.setState({ post: text }) }}
             />
 
             <Button title="Send" onPress={this.sendData} />
@@ -57,4 +65,5 @@ export default TripsScreen
 const styles = StyleSheet.create({
 	text: { color: "white", fontWeight: "bold", textAlign: "center", fontSize: 20, },
 	textInput: { borderWidth:1, borderColor:"gray", marginVertical: 20, padding:10, height:100, alignSelf: "stretch", fontSize: 18, },
+	textInputTitle: { borderWidth:1, borderColor:"gray", marginVertical: 20, padding:10, alignSelf: "stretch", fontSize: 18, },
   });
